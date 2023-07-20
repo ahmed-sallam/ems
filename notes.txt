@@ -1,0 +1,17 @@
+# **About:**
+
+An Employee Management System is a software application that helps organizations manage their employees. Some of the main features and functionalities are:
+
+Employee database: A central repository of employee information, such as personal details, contact information, job title, department, salary, benefits, performance reviews, etc.
+
+Employee self-service: A portal that allows employees to access and update their own information, such as personal details, leave requests, timesheets, payroll, etc.
+Attendance and leave management: A module that tracks and records employee attendance, working hours, overtime, absences, leaves, holidays, etc. and calculates pay accordingly.
+Performance management: A module that helps managers set goals, monitor progress, provide feedback, conduct appraisals, and reward employees based on their performance.
+Recruitment and onboarding: A module that helps HR managers manage the hiring process, from posting job openings, screening candidates, scheduling interviews, making offers, to orienting new hires.
+Training and development: A module that helps HR managers plan, organize, deliver, and evaluate training programs for employees to enhance their skills and competencies.
+Reports and analytics: A module that generates various reports and dashboards to provide insights into employee data, such as turnover rate, retention rate, productivity, engagement, satisfaction, etc.
+These are some of the main features and functionalities of an Employee Management System. Of course, different systems may have different features and functionalities depending on the specific needs and preferences of the organization.
+
+Tech Stack:
+Programming language: Java
+Web framework: Spring Boot
