@@ -19,4 +19,4 @@ Web framework: Spring Boot
 
 ## **ERD**
 
-![img.png](img.png)
+![img.png](ERD.png)
