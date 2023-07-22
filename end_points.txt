@@ -1,0 +1,13 @@
+Company:
+    Branch:
+        (add branch) /api/v1/branches [post]
+        (update branch) /api/v1/branches/:id [patch]
+        (list all branches) /api/v1/branches [get]
+        (delete one branch) /api/v1/branches/:id [delete]
+        (get branch departments) /api/v1/branches/:id/departments [get]
+    Department:
+        (add department) /api/v1/departments [post]
+        (update department) /api/v1/departments/:id [patch]
+        (list all departments) /api/v1/departments [get]
+        (delete one department) /api/v1/departments/:id [delete]
+        
