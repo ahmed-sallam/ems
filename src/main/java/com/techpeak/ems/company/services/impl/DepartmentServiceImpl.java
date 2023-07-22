@@ -2,9 +2,11 @@ package com.techpeak.ems.company.services.impl;
 
 import com.techpeak.ems.company.dto.DepartmentDto;
 import com.techpeak.ems.company.dto.DepartmentResDto;
-import com.techpeak.ems.company.dto.mapper.DeparmentMapper;
+import com.techpeak.ems.company.dto.mapper.DepartmentMapper;
+import com.techpeak.ems.company.entities.BranchEntity;
 import com.techpeak.ems.company.entities.DepartmentEntity;
 import com.techpeak.ems.company.repositories.DepartmentRepository;
+import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.company.services.DepartmentService;
 import com.techpeak.ems.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +18,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentRepository repository;
-    private final DeparmentMapper mapper;
+    private final DepartmentMapper mapper;
+    private final BranchService branchService;
 
     @Override
     public List<DepartmentResDto> listDepartments() {
@@ -35,6 +38,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     public DepartmentResDto createDepartment(DepartmentDto dto) {
 
         DepartmentEntity entity = mapper.toEntity(dto);
+        BranchEntity branchEntity = branchService.findOrThrow(dto.getBranch());
+        entity.setBranch(branchEntity);
         DepartmentEntity newEntity = repository.save(entity);
         return mapper.toDto(newEntity);
     }

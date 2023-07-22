@@ -7,8 +7,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,7 +32,7 @@ public class BranchEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branch")
     @ToString.Exclude
-    private List<DepartmentEntity> departments;
+    private Set<DepartmentEntity> departments;
 
     @Override
     public final boolean equals(Object o) {
