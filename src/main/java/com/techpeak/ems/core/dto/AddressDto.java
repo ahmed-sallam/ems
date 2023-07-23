@@ -1,5 +1,6 @@
 package com.techpeak.ems.core.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,6 @@ public class AddressDto {
     private String street;
     private String city;
     private String country;
+    @JsonIgnore
+    private Long branch;
 }

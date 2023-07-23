@@ -1,8 +1,8 @@
 package com.techpeak.ems.core.services;
 
-import com.techpeak.ems.company.entities.DepartmentEntity;
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
+import com.techpeak.ems.core.entities.AddressEntity;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public interface AddressService {
     AddressResDto createAddress(AddressDto dto);
     void deleteAddressById(Long id);
     AddressResDto updateAddress(Long id, AddressDto dto);
-    DepartmentEntity findOrThrow(Long id);
+    AddressEntity findOrThrow(Long id);
 }
