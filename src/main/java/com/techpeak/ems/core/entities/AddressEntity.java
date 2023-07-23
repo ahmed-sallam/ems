@@ -55,4 +55,9 @@ public class AddressEntity {
     public final int hashCode() {
         return getClass().hashCode();
     }
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = Instant.now();
+    }
 }

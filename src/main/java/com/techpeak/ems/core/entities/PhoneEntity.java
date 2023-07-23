@@ -53,4 +53,8 @@ public class PhoneEntity {
     public final int hashCode() {
         return getClass().hashCode();
     }
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = Instant.now();
+    }
 }

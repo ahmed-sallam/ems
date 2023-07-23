@@ -15,6 +15,6 @@ public class AddressDto {
     private String street;
     private String city;
     private String country;
-    @JsonIgnore
+//    @JsonIgnore
     private Long branch;
 }
