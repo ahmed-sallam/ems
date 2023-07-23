@@ -1,18 +1,16 @@
-package com.techpeak.ems.company.dto;
+package com.techpeak.ems.core.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.Instant;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BranchResDto {
-    private Long id;
+public class PhoneDto {
     private String name;
-    // todo: add address & phone  fields
+    private String countryCode;
+    private String number;
 }
