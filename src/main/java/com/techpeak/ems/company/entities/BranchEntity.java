@@ -1,6 +1,7 @@
 package com.techpeak.ems.company.entities;
 
 import com.techpeak.ems.core.entities.AddressEntity;
+import com.techpeak.ems.core.entities.PhoneEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -37,7 +38,10 @@ public class BranchEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branch", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<AddressEntity> addresses;
+    private Set<PhoneEntity> phones;
+
+    @OneToOne(mappedBy = "branch", cascade = CascadeType.ALL)
+    private AddressEntity addresses;
 
     @Override
     public final boolean equals(Object o) {
