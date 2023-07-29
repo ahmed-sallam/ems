@@ -36,7 +36,7 @@ public class Work {
     private Personal personal;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id", nullable = false)
+    @JoinColumn(name = "manager_id", nullable = true)
     @ToString.Exclude
     private Personal manager;
 
