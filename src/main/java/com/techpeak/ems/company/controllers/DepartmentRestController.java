@@ -2,16 +2,14 @@ package com.techpeak.ems.company.controllers;
 
 import com.techpeak.ems.company.dto.DepartmentDto;
 import com.techpeak.ems.company.dto.DepartmentResDto;
-import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
-import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.company.services.DepartmentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Optional.ofNullable;
 
@@ -29,9 +27,7 @@ public class DepartmentRestController {
     }
 
     @PostMapping
-    public ResponseEntity<DepartmentResDto> createDepartment(@RequestBody Map<String
-                    , DepartmentDto> dto){
-        DepartmentDto departmentDto = dto.get("department");
+    public ResponseEntity<DepartmentResDto> createDepartment(@RequestBody @Valid DepartmentDto departmentDto){
         DepartmentResDto result =
                 departmentService.createDepartment(departmentDto);
         return ResponseEntity.ok(result);
@@ -62,9 +58,7 @@ public class DepartmentRestController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<DepartmentResDto> updateDepartment(@PathVariable Long id,
-                                              @RequestBody Map<String
-            , DepartmentDto> dto) {
-        DepartmentDto departmentDto = dto.get("department");
+                                              @RequestBody @Valid DepartmentDto departmentDto) {
         DepartmentResDto result;
         try {
             result = departmentService.updateDepartment(id, departmentDto);
