@@ -6,6 +6,7 @@ import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
 import com.techpeak.ems.core.services.AddressService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,26 +25,24 @@ public class AddressRestController {
     private final AddressService addressService;
 
     @GetMapping
-    public ResponseEntity<List<AddressResDto>> getAllAddresses(){
+    public ResponseEntity<List<AddressResDto>> listAddresses(){
         List<AddressResDto> results = addressService.listAddresses();
         return ResponseEntity.of(ofNullable(results));
     }
 
     @PostMapping
-    public ResponseEntity<AddressResDto> postAddress(@RequestBody Map<String
-                    , AddressDto> dto){
-        AddressDto addressDto = dto.get("address");
-        if(addressDto.getBranch() == null){
-            System.out.println("llll"+ addressDto.getBranch());
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            // todo: recfactor after adding the Employee
-        }
+    public ResponseEntity<AddressResDto> createAddress(@RequestBody @Valid AddressDto addressDto){
+//        if(addressDto.getBranch() == null){
+//            System.out.println("llll"+ addressDto.getBranch());
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            // todo: recfactor after adding the Employee
+//        }
         AddressResDto result = addressService.createAddress(addressDto);
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AddressResDto> getAddressById(@PathVariable Long id){
+    public ResponseEntity<AddressResDto> findAddressById(@PathVariable Long id){
         AddressResDto result;
         try {
          result = addressService.findAddressById(id);
@@ -66,10 +65,8 @@ public class AddressRestController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<AddressResDto> updateAddressById(@PathVariable Long id,
-                                              @RequestBody Map<String
-            , AddressDto> dto) {
-        AddressDto addressDto = dto.get("address");
+    public ResponseEntity<AddressResDto> updateAddress(@PathVariable Long id,
+                                              @RequestBody @Valid AddressDto addressDto) {
         AddressResDto result;
         try {
             result = addressService.updateAddress(id, addressDto);
