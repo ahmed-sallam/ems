@@ -29,55 +29,27 @@ public class BranchRestController {
 
     @PostMapping
     public ResponseEntity<BranchResDto> createBranch(@RequestBody @Valid BranchDto branchDto){
-        BranchResDto result = branchservice.createBranch(branchDto);
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(branchservice.createBranch(branchDto));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BranchResDto> findBranchById(@PathVariable Long id){
-        BranchResDto result;
-        try {
-         result = branchservice.findBranchById(id);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(branchservice.findBranchById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteBranchById(@PathVariable Long id){
-        try {
-
         branchservice.deleteBranchById(id);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<BranchResDto> updateBranch(@PathVariable Long id, @RequestBody @Valid  BranchDto branchDto) {
-        BranchResDto result;
-        try {
-            result = branchservice.updateBranch(id, branchDto);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(branchservice.updateBranch(id, branchDto));
     }
 
     @GetMapping("/{id}/departments")
     public ResponseEntity<BranchWithDepartmentsDto> findDepartmentsOfBranch(@PathVariable Long id){
-
-        BranchWithDepartmentsDto result;
-        try {
-            result = branchservice.findDepartmentsOfBranch(id);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(branchservice.findDepartmentsOfBranch(id));
     }
 }
