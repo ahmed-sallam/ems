@@ -22,13 +22,13 @@ public class BranchRestController {
     private final BranchService branchservice;
 
     @GetMapping
-    public ResponseEntity<List<BranchResDto>> getAllBranches(){
+    public ResponseEntity<List<BranchResDto>> listBranches(){
         List<BranchResDto> results = branchservice.listBranches();
         return ResponseEntity.of(ofNullable(results));
     }
 
     @PostMapping
-    public ResponseEntity<BranchResDto> postBranch(@RequestBody Map<String
+    public ResponseEntity<BranchResDto> createBranch(@RequestBody Map<String
                     , BranchDto> dto){
         BranchDto branchDto = dto.get("branch");
         BranchResDto result = branchservice.createBranch(branchDto);
@@ -36,7 +36,7 @@ public class BranchRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BranchResDto> getBranchById(@PathVariable Long id){
+    public ResponseEntity<BranchResDto> findBranchById(@PathVariable Long id){
         BranchResDto result;
         try {
          result = branchservice.findBranchById(id);
@@ -59,7 +59,7 @@ public class BranchRestController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<BranchResDto> updateBranchById(@PathVariable Long id, @RequestBody Map<String
+    public ResponseEntity<BranchResDto> updateBranch(@PathVariable Long id, @RequestBody Map<String
             , BranchDto> dto) {
         BranchDto branchDto = dto.get("branch");
         BranchResDto result;
@@ -73,11 +73,11 @@ public class BranchRestController {
     }
 
     @GetMapping("/{id}/departments")
-    public ResponseEntity<BranchWithDepartmentsDto> getBranchDepartmentsById(@PathVariable Long id){
+    public ResponseEntity<BranchWithDepartmentsDto> findDepartmentsOfBranch(@PathVariable Long id){
 
         BranchWithDepartmentsDto result;
         try {
-            result = branchservice.findBranchWithDepartmentsById(id);
+            result = branchservice.findDepartmentsOfBranch(id);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

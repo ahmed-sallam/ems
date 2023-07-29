@@ -54,7 +54,7 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
-    public BranchWithDepartmentsDto findBranchWithDepartmentsById(Long id) {
+    public BranchWithDepartmentsDto findDepartmentsOfBranch(Long id) {
         findOrThrow(id);
         Branch entity = repository.findByIdAndFetchDepartments(id);
         return mapper.toDtoWithDepartments(entity);

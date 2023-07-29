@@ -13,6 +13,6 @@ public interface BranchService {
     BranchResDto createBranch(BranchDto dto);
     void deleteBranchById(Long id);
     BranchResDto updateBranch(Long id, BranchDto dto);
-    BranchWithDepartmentsDto findBranchWithDepartmentsById(Long id);
+    BranchWithDepartmentsDto findDepartmentsOfBranch(Long id);
     Branch findOrThrow(Long id);
 }
