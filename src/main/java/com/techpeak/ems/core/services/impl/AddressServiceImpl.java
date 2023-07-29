@@ -1,7 +1,6 @@
 package com.techpeak.ems.core.services.impl;
 
-import com.techpeak.ems.company.entities.BranchEntity;
-import com.techpeak.ems.company.entities.DepartmentEntity;
+import com.techpeak.ems.company.entities.Branch;
 import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
@@ -38,7 +37,7 @@ public class AddressServiceImpl implements AddressService {
     public AddressResDto createAddress(AddressDto dto) {
         AddressEntity entity = mapper.toEntity(dto);
         if(dto.getBranch() != null){
-        BranchEntity branchEntity = branchService.findOrThrow(dto.getBranch());
+        Branch branchEntity = branchService.findOrThrow(dto.getBranch());
         entity.setBranch(branchEntity);
         }
         AddressEntity newEntity = repository.save(entity);

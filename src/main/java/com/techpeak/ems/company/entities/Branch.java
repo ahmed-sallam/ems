@@ -18,15 +18,17 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="Branch")
-@Table(name="com_branch")
+@Table(name="branch")
 @EntityListeners(AuditingEntityListener.class)
-public class BranchEntity {
+public class Branch {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
+    private String address;
 
     @CreatedDate
     @Column(name="created_at", updatable = false, nullable = false)
@@ -40,8 +42,6 @@ public class BranchEntity {
     @ToString.Exclude
     private Set<PhoneEntity> phones;
 
-    @OneToOne(mappedBy = "branch", cascade = CascadeType.ALL)
-    private AddressEntity addresses;
 
     @Override
     public final boolean equals(Object o) {
@@ -50,7 +50,7 @@ public class BranchEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        BranchEntity that = (BranchEntity) o;
+        Branch that = (Branch) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

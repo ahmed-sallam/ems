@@ -30,7 +30,7 @@ public class DepartmentEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "com_branch_id", nullable = false)
     @ToString.Exclude
-    private BranchEntity branch;
+    private Branch branch;
 
 
     @Override

@@ -1,11 +1,10 @@
 package com.techpeak.ems.core.services.impl;
 
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
 import com.techpeak.ems.core.dto.mapper.PhoneMapper;
-import com.techpeak.ems.core.entities.AddressEntity;
 import com.techpeak.ems.core.entities.PhoneEntity;
 import com.techpeak.ems.core.repositories.PhoneRepository;
 import com.techpeak.ems.core.services.PhoneService;
@@ -38,7 +37,7 @@ public class PhoneServiceImpl implements PhoneService {
     public PhoneResDto createPhone(PhoneDto dto) {
         PhoneEntity entity = mapper.toEntity(dto);
         if(dto.getBranch() != null){
-            BranchEntity branchEntity = branchService.findOrThrow(dto.getBranch());
+            Branch branchEntity = branchService.findOrThrow(dto.getBranch());
             entity.setBranch(branchEntity);
         }
         PhoneEntity newEntity = repository.save(entity);

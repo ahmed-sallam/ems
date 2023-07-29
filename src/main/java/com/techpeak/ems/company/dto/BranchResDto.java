@@ -14,5 +14,6 @@ import java.time.Instant;
 public class BranchResDto {
     private Long id;
     private String name;
+    private String address;
     // todo: add address & phone  fields
 }

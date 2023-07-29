@@ -3,7 +3,7 @@ package com.techpeak.ems.company.services.impl;
 import com.techpeak.ems.company.dto.DepartmentDto;
 import com.techpeak.ems.company.dto.DepartmentResDto;
 import com.techpeak.ems.company.dto.mapper.DepartmentMapper;
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 import com.techpeak.ems.company.entities.DepartmentEntity;
 import com.techpeak.ems.company.repositories.DepartmentRepository;
 import com.techpeak.ems.company.services.BranchService;
@@ -38,7 +38,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public DepartmentResDto createDepartment(DepartmentDto dto) {
 
         DepartmentEntity entity = mapper.toEntity(dto);
-        BranchEntity branchEntity = branchService.findOrThrow(dto.getBranch());
+        Branch branchEntity = branchService.findOrThrow(dto.getBranch());
         entity.setBranch(branchEntity);
         DepartmentEntity newEntity = repository.save(entity);
         return mapper.toDto(newEntity);

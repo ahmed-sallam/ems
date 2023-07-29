@@ -1,6 +1,6 @@
 package com.techpeak.ems.core.entities;
 
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -36,7 +36,7 @@ public class PhoneEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "com_branch_id", nullable = true)
     @ToString.Exclude
-    private BranchEntity branch;
+    private Branch branch;
 
     @Override
     public final boolean equals(Object o) {

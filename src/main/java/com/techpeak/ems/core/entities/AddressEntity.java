@@ -1,6 +1,6 @@
 package com.techpeak.ems.core.entities;
 
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -35,10 +35,6 @@ public class AddressEntity {
     @Column(name="created_at", updatable = false, nullable = false)
     private Instant createdAt;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "com_branch_id", nullable = true)
-    @ToString.Exclude
-    private BranchEntity branch;
 
     @Override
     public final boolean equals(Object o) {

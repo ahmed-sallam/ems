@@ -8,4 +8,5 @@ import lombok.*;
 @NoArgsConstructor
 public class BranchDto {
     private String name;
+    private String address;
 }

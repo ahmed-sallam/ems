@@ -3,9 +3,8 @@ package com.techpeak.ems.company.dto.mapper;
 import com.techpeak.ems.company.dto.BranchDto;
 import com.techpeak.ems.company.dto.BranchResDto;
 import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.modelmapper.ModelMapper;
 
@@ -17,19 +16,19 @@ import java.util.stream.Collectors;
 public class BranchMapper {
     private  ModelMapper mapper;
 
-    public BranchResDto toDto(BranchEntity entity) {
+    public BranchResDto toDto(Branch entity) {
         return mapper.map(entity, BranchResDto.class);
     }
 
-    public BranchWithDepartmentsDto toDtoWithDepartments(BranchEntity entity) {
+    public BranchWithDepartmentsDto toDtoWithDepartments(Branch entity) {
         return mapper.map(entity, BranchWithDepartmentsDto.class);
     }
 
-    public BranchEntity toEntity(BranchDto dto) {
-        return mapper.map(dto, BranchEntity.class);
+    public Branch toEntity(BranchDto dto) {
+        return mapper.map(dto, Branch.class);
     }
 
-    public List<BranchResDto> toListDto(List<BranchEntity> entities){
+    public List<BranchResDto> toListDto(List<Branch> entities){
         return entities
                 .stream()
                 .map(this::toDto)

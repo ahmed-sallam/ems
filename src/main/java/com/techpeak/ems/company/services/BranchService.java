@@ -3,7 +3,7 @@ package com.techpeak.ems.company.services;
 import com.techpeak.ems.company.dto.BranchDto;
 import com.techpeak.ems.company.dto.BranchResDto;
 import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
-import com.techpeak.ems.company.entities.BranchEntity;
+import com.techpeak.ems.company.entities.Branch;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ public interface BranchService {
     void deleteBranchById(Long id);
     BranchResDto updateBranch(Long id, BranchDto dto);
     BranchWithDepartmentsDto findBranchWithDepartmentsById(Long id);
-    BranchEntity findOrThrow(Long id);
+    Branch findOrThrow(Long id);
 }
