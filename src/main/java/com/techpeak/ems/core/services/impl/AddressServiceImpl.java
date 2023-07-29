@@ -36,10 +36,9 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressResDto createAddress(AddressDto dto) {
         Address entity = mapper.toEntity(dto);
-        if(dto.getBranch() != null){
-        Branch branchEntity = branchService.findOrThrow(dto.getBranch());
-        entity.setBranch(branchEntity);
-        }
+//        if(dto.getBranch() != null){
+//        Branch branchEntity = branchService.findOrThrow(dto.getBranch());
+//        }
         Address newEntity = repository.save(entity);
         return mapper.toDto(newEntity);
     }

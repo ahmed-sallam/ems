@@ -4,6 +4,7 @@ import com.techpeak.ems.company.dto.BranchDto;
 import com.techpeak.ems.company.dto.BranchResDto;
 import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
 import com.techpeak.ems.company.services.BranchService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +29,7 @@ public class BranchRestController {
     }
 
     @PostMapping
-    public ResponseEntity<BranchResDto> createBranch(@RequestBody Map<String
-                    , BranchDto> dto){
-        BranchDto branchDto = dto.get("branch");
+    public ResponseEntity<BranchResDto> createBranch(@RequestBody @Valid BranchDto branchDto){
         BranchResDto result = branchservice.createBranch(branchDto);
         return ResponseEntity.ok(result);
     }
@@ -59,9 +58,7 @@ public class BranchRestController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<BranchResDto> updateBranch(@PathVariable Long id, @RequestBody Map<String
-            , BranchDto> dto) {
-        BranchDto branchDto = dto.get("branch");
+    public ResponseEntity<BranchResDto> updateBranch(@PathVariable Long id, @RequestBody @Valid  BranchDto branchDto) {
         BranchResDto result;
         try {
             result = branchservice.updateBranch(id, branchDto);
