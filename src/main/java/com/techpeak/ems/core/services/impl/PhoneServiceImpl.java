@@ -5,7 +5,7 @@ import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
 import com.techpeak.ems.core.dto.mapper.PhoneMapper;
-import com.techpeak.ems.core.entities.PhoneEntity;
+import com.techpeak.ems.core.entities.Phone;
 import com.techpeak.ems.core.repositories.PhoneRepository;
 import com.techpeak.ems.core.services.PhoneService;
 import com.techpeak.ems.exceptions.NotFoundException;
@@ -23,24 +23,24 @@ public class PhoneServiceImpl implements PhoneService {
 
     @Override
     public List<PhoneResDto> listPhones() {
-        List<PhoneEntity> entities = repository.findAll();
+        List<Phone> entities = repository.findAll();
         return mapper.toListDto(entities);
     }
 
     @Override
     public PhoneResDto findPhoneById(Long id) {
-        PhoneEntity entity = findOrThrow(id);
+        Phone entity = findOrThrow(id);
         return mapper.toDto(entity);
     }
 
     @Override
     public PhoneResDto createPhone(PhoneDto dto) {
-        PhoneEntity entity = mapper.toEntity(dto);
+        Phone entity = mapper.toEntity(dto);
         if(dto.getBranch() != null){
             Branch branchEntity = branchService.findOrThrow(dto.getBranch());
             entity.setBranch(branchEntity);
         }
-        PhoneEntity newEntity = repository.save(entity);
+        Phone newEntity = repository.save(entity);
         return mapper.toDto(newEntity);
     }
 
@@ -52,14 +52,14 @@ public class PhoneServiceImpl implements PhoneService {
 
     @Override
     public PhoneResDto updatePhone(Long id, PhoneDto dto) {
-        PhoneEntity entity = findOrThrow(id);
+        Phone entity = findOrThrow(id);
         entity.setName(dto.getName());
-        PhoneEntity newEntity = repository.save(entity);
+        Phone newEntity = repository.save(entity);
         return mapper.toDto(newEntity);
     }
 
     @Override
-    public PhoneEntity findOrThrow(Long id) {
+    public Phone findOrThrow(Long id) {
         return repository
                 .findById(id)
                 .orElseThrow(()->

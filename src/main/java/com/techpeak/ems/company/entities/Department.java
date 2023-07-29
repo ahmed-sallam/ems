@@ -1,6 +1,5 @@
-package com.techpeak.ems.core.entities;
+package com.techpeak.ems.company.entities;
 
-import com.techpeak.ems.company.entities.Branch;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -12,28 +11,26 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="Address")
-@Table(name="address")
+@Entity(name="Department")
+@Table(name = "department")
 @EntityListeners(AuditingEntityListener.class)
-public class AddressEntity {
+public class Department {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private String street;
-    @Column(nullable = false)
-    private String city;
-    @Column(nullable = false)
-    private String country;
     @CreatedDate
     @Column(name="created_at", updatable = false, nullable = false)
     private Instant createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "com_branch_id", nullable = false)
+    @ToString.Exclude
+    private Branch branch;
 
 
     @Override
@@ -43,7 +40,7 @@ public class AddressEntity {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        AddressEntity that = (AddressEntity) o;
+        Department that = (Department) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

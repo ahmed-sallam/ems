@@ -1,7 +1,6 @@
 package com.techpeak.ems.company.entities;
 
-import com.techpeak.ems.core.entities.AddressEntity;
-import com.techpeak.ems.core.entities.PhoneEntity;
+import com.techpeak.ems.core.entities.Phone;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -36,11 +35,11 @@ public class Branch {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branch", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<DepartmentEntity> departments;
+    private Set<Department> departments;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branch", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<PhoneEntity> phones;
+    private Set<Phone> phones;
 
 
     @Override

@@ -3,7 +3,7 @@ package com.techpeak.ems.core.dto.mapper;
 
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
-import com.techpeak.ems.core.entities.PhoneEntity;
+import com.techpeak.ems.core.entities.Phone;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -16,15 +16,15 @@ import java.util.stream.Collectors;
 public class PhoneMapper {
     private ModelMapper mapper;
 
-    public PhoneResDto toDto(PhoneEntity entity) {
+    public PhoneResDto toDto(Phone entity) {
         return mapper.map(entity, PhoneResDto.class);
     }
 
-    public PhoneEntity toEntity(PhoneDto dto) {
-        return mapper.map(dto, PhoneEntity.class);
+    public Phone toEntity(PhoneDto dto) {
+        return mapper.map(dto, Phone.class);
     }
 
-    public List<PhoneResDto> toListDto(List<PhoneEntity> entities) {
+    public List<PhoneResDto> toListDto(List<Phone> entities) {
         return entities
                 .stream()
                 .map(this::toDto)

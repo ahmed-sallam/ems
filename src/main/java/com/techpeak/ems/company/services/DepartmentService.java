@@ -2,7 +2,7 @@ package com.techpeak.ems.company.services;
 
 import com.techpeak.ems.company.dto.DepartmentDto;
 import com.techpeak.ems.company.dto.DepartmentResDto;
-import com.techpeak.ems.company.entities.DepartmentEntity;
+import com.techpeak.ems.company.entities.Department;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public interface DepartmentService {
     DepartmentResDto createDepartment(DepartmentDto dto);
     void deleteDepartmentById(Long id);
     DepartmentResDto updateDepartment(Long id, DepartmentDto dto);
-    DepartmentEntity findOrThrow(Long id);
+    Department findOrThrow(Long id);
 }
