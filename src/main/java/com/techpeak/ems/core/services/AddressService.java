@@ -2,7 +2,7 @@ package com.techpeak.ems.core.services;
 
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
-import com.techpeak.ems.core.entities.Address;
+import com.techpeak.ems.core.models.Address;
 
 import java.util.List;
 

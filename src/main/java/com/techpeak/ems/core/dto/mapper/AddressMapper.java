@@ -3,7 +3,7 @@ package com.techpeak.ems.core.dto.mapper;
 
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
-import com.techpeak.ems.core.entities.Address;
+import com.techpeak.ems.core.models.Address;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

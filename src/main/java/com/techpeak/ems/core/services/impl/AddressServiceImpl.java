@@ -1,11 +1,10 @@
 package com.techpeak.ems.core.services.impl;
 
-import com.techpeak.ems.company.entities.Branch;
 import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.core.dto.AddressDto;
 import com.techpeak.ems.core.dto.AddressResDto;
 import com.techpeak.ems.core.dto.mapper.AddressMapper;
-import com.techpeak.ems.core.entities.Address;
+import com.techpeak.ems.core.models.Address;
 import com.techpeak.ems.core.repositories.AddressRepository;
 import com.techpeak.ems.core.services.AddressService;
 import com.techpeak.ems.exceptions.NotFoundException;

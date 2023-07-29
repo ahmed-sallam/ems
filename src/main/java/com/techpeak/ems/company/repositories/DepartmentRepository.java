@@ -1,6 +1,6 @@
 package com.techpeak.ems.company.repositories;
 
-import com.techpeak.ems.company.entities.Department;
+import com.techpeak.ems.company.models.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

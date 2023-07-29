@@ -1,5 +1,6 @@
-package com.techpeak.ems.core.entities;
+package com.techpeak.ems.company.models;
 
+import com.techpeak.ems.employee.models.Personal;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -8,31 +9,36 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="Address")
-@Table(name="address")
+@Entity(name="Department")
+@Table(name = "department")
 @EntityListeners(AuditingEntityListener.class)
-public class Address {
+public class Department {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private String street;
-    @Column(nullable = false)
-    private String city;
-    @Column(nullable = false)
-    private String country;
     @CreatedDate
     @Column(name="created_at", updatable = false, nullable = false)
     private Instant createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "branch_id", nullable = false)
+    @ToString.Exclude
+    private Branch branch;
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
+    @ToString.Exclude
+    private Set<Personal> personals;
+
 
 
     @Override
@@ -42,7 +48,7 @@ public class Address {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Address that = (Address) o;
+        Department that = (Department) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

@@ -2,7 +2,7 @@ package com.techpeak.ems.company.services;
 
 import com.techpeak.ems.company.dto.DepartmentDto;
 import com.techpeak.ems.company.dto.DepartmentResDto;
-import com.techpeak.ems.company.entities.Department;
+import com.techpeak.ems.company.models.Department;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.techpeak.ems.company.services;
 import com.techpeak.ems.company.dto.BranchDto;
 import com.techpeak.ems.company.dto.BranchResDto;
 import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
-import com.techpeak.ems.company.entities.Branch;
+import com.techpeak.ems.company.models.Branch;
 
 import java.util.List;
 

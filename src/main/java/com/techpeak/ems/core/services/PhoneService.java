@@ -2,7 +2,7 @@ package com.techpeak.ems.core.services;
 
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
-import com.techpeak.ems.core.entities.Phone;
+import com.techpeak.ems.core.models.Phone;
 
 import java.util.List;
 

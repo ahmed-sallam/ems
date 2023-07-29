@@ -1,6 +1,6 @@
 package com.techpeak.ems.core.repositories;
 
-import com.techpeak.ems.core.entities.Phone;
+import com.techpeak.ems.core.models.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

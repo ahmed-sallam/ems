@@ -3,7 +3,7 @@ package com.techpeak.ems.company.dto.mapper;
 import com.techpeak.ems.company.dto.BranchDto;
 import com.techpeak.ems.company.dto.BranchResDto;
 import com.techpeak.ems.company.dto.BranchWithDepartmentsDto;
-import com.techpeak.ems.company.entities.Branch;
+import com.techpeak.ems.company.models.Branch;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.modelmapper.ModelMapper;

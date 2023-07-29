@@ -35,38 +35,19 @@ public class DepartmentRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DepartmentResDto> findDepartmentById(@PathVariable Long id){
-        DepartmentResDto result;
-        try {
-         result = departmentService.findDepartmentById(id);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(departmentService.findDepartmentById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteDepartmentById(@PathVariable Long id){
-        try {
-
         departmentService.deleteDepartmentById(id);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<DepartmentResDto> updateDepartment(@PathVariable Long id,
                                               @RequestBody @Valid DepartmentDto departmentDto) {
-        DepartmentResDto result;
-        try {
-            result = departmentService.updateDepartment(id, departmentDto);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(departmentService.updateDepartment(id, departmentDto));
     }
 
 

@@ -1,11 +1,11 @@
 package com.techpeak.ems.core.services.impl;
 
-import com.techpeak.ems.company.entities.Branch;
+import com.techpeak.ems.company.models.Branch;
 import com.techpeak.ems.company.services.BranchService;
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
 import com.techpeak.ems.core.dto.mapper.PhoneMapper;
-import com.techpeak.ems.core.entities.Phone;
+import com.techpeak.ems.core.models.Phone;
 import com.techpeak.ems.core.repositories.PhoneRepository;
 import com.techpeak.ems.core.services.PhoneService;
 import com.techpeak.ems.exceptions.NotFoundException;

@@ -3,7 +3,7 @@ package com.techpeak.ems.core.dto.mapper;
 
 import com.techpeak.ems.core.dto.PhoneDto;
 import com.techpeak.ems.core.dto.PhoneResDto;
-import com.techpeak.ems.core.entities.Phone;
+import com.techpeak.ems.core.models.Phone;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
