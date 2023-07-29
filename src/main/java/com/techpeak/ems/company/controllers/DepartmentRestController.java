@@ -23,13 +23,13 @@ public class DepartmentRestController {
     private final DepartmentService departmentService;
 
     @GetMapping
-    public ResponseEntity<List<DepartmentResDto>> getAllBranches(){
+    public ResponseEntity<List<DepartmentResDto>> listDepartments(){
         List<DepartmentResDto> results = departmentService.listDepartments();
         return ResponseEntity.of(ofNullable(results));
     }
 
     @PostMapping
-    public ResponseEntity<DepartmentResDto> postBranch(@RequestBody Map<String
+    public ResponseEntity<DepartmentResDto> createDepartment(@RequestBody Map<String
                     , DepartmentDto> dto){
         DepartmentDto departmentDto = dto.get("department");
         DepartmentResDto result =
@@ -38,7 +38,7 @@ public class DepartmentRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DepartmentResDto> getDepartmentById(@PathVariable Long id){
+    public ResponseEntity<DepartmentResDto> findDepartmentById(@PathVariable Long id){
         DepartmentResDto result;
         try {
          result = departmentService.findDepartmentById(id);
@@ -61,7 +61,7 @@ public class DepartmentRestController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<DepartmentResDto> updateDepartmentById(@PathVariable Long id,
+    public ResponseEntity<DepartmentResDto> updateDepartment(@PathVariable Long id,
                                               @RequestBody Map<String
             , DepartmentDto> dto) {
         DepartmentDto departmentDto = dto.get("department");
