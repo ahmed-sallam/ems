@@ -23,8 +23,7 @@ public class BranchRestController {
 
     @GetMapping
     public ResponseEntity<List<BranchResDto>> listBranches(){
-        List<BranchResDto> results = branchservice.listBranches();
-        return ResponseEntity.of(ofNullable(results));
+        return ResponseEntity.ok(branchservice.listBranches());
     }
 
     @PostMapping
