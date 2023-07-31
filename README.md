@@ -52,10 +52,8 @@ To get started with the EMS REST API, follow these steps:
 3. **Configuration:** Configure the database connection and other settings in 
    the **application.properties** file located in the **src/main/resources** directory.
 
+4. **Run the Application:** Use your IDE or the following command to run the application:
 `./mvnw spring-boot:run`
-
-4. **Run the Application:** Use your IDE or the following command to run the 
-   application:
 
 5. **Access the API:** The EMS REST API is now up and running. You can use your 
    preferred API client (e.g., Postman) to interact with the endpoints.
