@@ -64,7 +64,7 @@ public class AddressRestController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<AddressResDto> updateAddress(@PathVariable Long id,
                                               @RequestBody @Valid AddressDto addressDto) {
         AddressResDto result;

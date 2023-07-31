@@ -44,7 +44,7 @@ public class DepartmentRestController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<DepartmentResDto> updateDepartment(@PathVariable Long id,
                                               @RequestBody @Valid DepartmentDto departmentDto) {
         return ResponseEntity.ok(departmentService.updateDepartment(id, departmentDto));

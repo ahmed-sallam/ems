@@ -42,7 +42,7 @@ public class BranchRestController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<BranchResDto> updateBranch(@PathVariable Long id, @RequestBody @Valid  BranchDto branchDto) {
         return ResponseEntity.ok(branchservice.updateBranch(id, branchDto));
     }
